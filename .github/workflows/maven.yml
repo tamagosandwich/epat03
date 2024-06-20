@@ -29,6 +29,7 @@ jobs:
         cache: maven
     - name: Build with Maven
       run: mvn -B package --file pom.xml
+<<<<<<< HEAD
   snyk:
       runs-on: ubuntu-latest
       steps:
@@ -37,3 +38,15 @@ jobs:
         uses: snyk/actions/maven@master
         env:
           SNYK_TOKEN: ${{secrets.SNYK_TOKEN }}
+=======
+
+  snyk:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - name: Run Snyk to check for vulnerabilities
+        uses: snyk/actions/node@master
+        env:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+      
+>>>>>>> c405e90da69b9057a49bd5a1c9ad9e60dea5c5ff
